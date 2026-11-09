@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* Paleta alinhada ao logo (verde-oliva) e às artes da Vladia (pêssego, areia, sálvia). */
+:root {
+  --background: #faf7f1;
+  --foreground: #1f2a1a;
+  --brand: #4d6a2f;
+  --brand-dark: #2f4a22;
+  --brand-soft: #e8eedd;
+  --accent: #a3471d;
+  --muted: #5a6352;
+  --peach: #f5dfd3;
+  --sand: #f3e6c4;
+  --sage: #dde8d6;
+  --whatsapp: #167c45;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-peach: var(--peach);
+  --color-sand: var(--sand);
+  --color-sage: var(--sage);
+  --color-whatsapp: var(--whatsapp);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Animação de entrada ao rolar, só com CSS. Navegadores sem suporte mostram o conteúdo normalmente. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+
+  .float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

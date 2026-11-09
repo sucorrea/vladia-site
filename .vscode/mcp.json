@@ -1,0 +1,72 @@
+{
+  "servers": {
+    "io.github.ChromeDevTools/chrome-devtools-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "--registry",
+        "https://registry.npmjs.org",
+        "chrome-devtools-mcp@0.16.0"
+      ],
+      "gallery": "https://api.mcp.github.com",
+      "version": "0.16.0"
+    },
+    "io.github.upstash/context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@upstash/context7-mcp@1.0.31"],
+      "env": {
+        "CONTEXT7_API_KEY": "${input:CONTEXT7_API_KEY}"
+      },
+      "gallery": "https://api.mcp.github.com",
+      "version": "1.0.31"
+    },
+    "lighthouse": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "lighthouse-mcp"]
+    },
+    "modelcontextprotocol/server-github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    },
+   "github-actions": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"github-actions-mcp"
+			],
+			"env": {
+				"GITHUB_TOKEN": "${input:GITHUB_PERSONAL_ACCESS_TOKEN}"
+			}
+    },
+    "mcp-lambdatest": {
+      "type": "http",
+      "url": "https://mcp.lambdatest.com/mcp"
+    }
+  },
+  "inputs": [
+    {
+      "id": "GITHUB_PERSONAL_ACCESS_TOKEN",
+      "type": "promptString",
+      "description": "GitHub personal access token for authentication",
+      "password": true
+    },
+    {
+      "id": "CONTEXT7_API_KEY",
+      "type": "promptString",
+      "description": "API key for authentication",
+      "password": true
+    }
+  ]
+}
