@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { WhatsAppIcon } from "@/components/icons";
 import { siteGraph } from "@/lib/schema";
-import { site, whatsappLink } from "@/lib/site";
+import { site } from "@/lib/site";
 
 // next/font gera uma fonte reserva com as mesmas medidas, evitando que o layout "pule"
 // quando a fonte carrega (CLS), e pré-carrega os arquivos.
@@ -101,21 +98,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <JsonLd data={siteGraph()} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <aside aria-label="Contato rápido">
-          <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Falar com a Vladia no WhatsApp"
-            className="fixed right-4 bottom-4 z-50 inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-3.5 text-sm font-semibold text-white shadow-xl shadow-black/15 transition hover:-translate-y-0.5 md:hidden"
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-            Agendar
-          </a>
-        </aside>
+        {children}
       </body>
     </html>
   );
