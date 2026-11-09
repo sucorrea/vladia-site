@@ -42,3 +42,7 @@ next-env.d.ts
 
 # prints de testes com Playwright
 /.playwright-mcp
+
+# configurações locais de MCP e do editor
+/.mcp.json
+/.vscode/
