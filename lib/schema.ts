@@ -44,7 +44,7 @@ export function siteGraph() {
         description: site.description,
         url: site.url,
         logo: absoluteUrl("/brand/logo-completo.png"),
-        image: absoluteUrl("/opengraph-image.png"),
+        image: absoluteUrl("/opengraph-image.jpg"),
         telephone: `+${site.whatsappNumber}`,
         medicalSpecialty: "Nutrition",
         priceRange: "$$",

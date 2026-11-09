@@ -1,4 +1,14 @@
 // Dados centrais do site. Itens marcados com "REVISAR" precisam ser confirmados pela Vladia.
+
+// Endereço público do site, usado em links de compartilhamento, canonical, sitemap e JSON-LD.
+// Ordem: domínio próprio (defina NEXT_PUBLIC_SITE_URL na Vercel quando tiver um) →
+// domínio de produção que a própria Vercel informa no build → endereço atual na Vercel.
+function siteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "https://vladia-nutricionista.vercel.app";
+}
+
 export const site = {
   name: "Vladia Mori",
   brand: "Clínica Vladia Nutri",
@@ -19,7 +29,7 @@ export const site = {
   whatsappDisplay: "(14) 99854-8211",
   whatsappMessage: "Olá, Vladia! Vim pelo seu site e gostaria de agendar uma consulta.",
   crn: "", // REVISAR: preencher com o número do CRN (ex.: "CRN-3 00000"). Se vazio, não aparece no site.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://vladiamori.com.br", // REVISAR: domínio final
+  url: siteUrl(),
 };
 
 export function whatsappLink(message: string = site.whatsappMessage) {

@@ -27,13 +27,13 @@ A foto da Vladia está em `public/vladia-mori.webp` (fundo removido). Para troca
 
 Já configurado:
 
-- Título, descrição, URL canônica e imagem de compartilhamento (`app/opengraph-image.png`) em todas as páginas.
+- Título, descrição, URL canônica e imagem de compartilhamento (`app/opengraph-image.jpg`) em todas as páginas.
 - Dados estruturados (JSON-LD, em `lib/schema.ts`): clínica (`MedicalClinic`), nutricionista (`Person`), site, perguntas frequentes (`FAQPage`) e endereço do consultório.
 - `sitemap.xml`, `robots.txt` (libera Google, Bing e robôs de IA como GPTBot, ClaudeBot e PerplexityBot), `manifest.webmanifest` e `/llms.txt` (resumo do site para IAs).
 
 Depois de publicar:
 
-1. Definir `NEXT_PUBLIC_SITE_URL` com o domínio final.
+1. Quando houver domínio próprio, definir `NEXT_PUBLIC_SITE_URL` na Vercel (hoje o site usa https://vladia-nutricionista.vercel.app automaticamente).
 2. Cadastrar o site no Google Search Console e no Bing Webmaster Tools, enviar o `sitemap.xml` e colar os códigos de verificação em `verification`, no `app/layout.tsx`.
 3. Criar ou atualizar o Perfil da Empresa no Google com o mesmo nome, telefone e endereço do site.
 4. Validar os dados estruturados em https://search.google.com/test/rich-results.
